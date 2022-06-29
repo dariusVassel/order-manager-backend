@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  specied_name: MyString
+  scientific_name: MyString
+  color: MyString
+  physical_description: MyString
+
+two:
+  specied_name: MyString
+  scientific_name: MyString
+  color: MyString
+  physical_description: MyString
