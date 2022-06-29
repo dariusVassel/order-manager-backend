@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_status: MyString
+  po_date: 2022-06-29
+  po_number: 1
+  internal_ref_number: 1
+  order_item_id: 1
+  sizd: MyString
+  glaze: MyString
+  price_ks: 1
+  cartons: 1
+  packing: MyString
+  kgs_carton: 1
+  packing_specs: MyString
+  shipment_date: 2022-06-29
+  payment_terms: MyString
+  port_to: MyString
+  port_from: MyString
+  order_total: 1
+  freeze: MyString
+  total_kilos: 1
+  buyer_id: 1
+  seller_id: 1
+  agent_id: 1
+
+two:
+  order_status: MyString
+  po_date: 2022-06-29
+  po_number: 1
+  internal_ref_number: 1
+  order_item_id: 1
+  sizd: MyString
+  glaze: MyString
+  price_ks: 1
+  cartons: 1
+  packing: MyString
+  kgs_carton: 1
+  packing_specs: MyString
+  shipment_date: 2022-06-29
+  payment_terms: MyString
+  port_to: MyString
+  port_from: MyString
+  order_total: 1
+  freeze: MyString
+  total_kilos: 1
+  buyer_id: 1
+  seller_id: 1
+  agent_id: 1
