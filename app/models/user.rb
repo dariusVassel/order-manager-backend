@@ -14,3 +14,5 @@ class User < ApplicationRecord
         Order.where("buyer_id = ? OR seller_id = ?", id, id)
     end
 end
+
+#TBC
