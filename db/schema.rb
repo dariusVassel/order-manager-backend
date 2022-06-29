@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_29_150404) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_29_150935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.string "order_status"
+    t.date "po_date"
+    t.integer "po_number"
+    t.integer "internal_ref_number"
+    t.integer "order_item_id"
+    t.string "sizd"
+    t.string "glaze"
+    t.integer "price_ks"
+    t.integer "cartons"
+    t.string "packing"
+    t.integer "kgs_carton"
+    t.string "packing_specs"
+    t.date "shipment_date"
+    t.string "payment_terms"
+    t.string "port_to"
+    t.string "port_from"
+    t.integer "order_total"
+    t.string "freeze"
+    t.integer "total_kilos"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.bigint "agent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_orders_on_agent_id"
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+    t.index ["seller_id"], name: "index_orders_on_seller_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
@@ -47,4 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_150404) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders", "users", column: "agent_id"
+  add_foreign_key "orders", "users", column: "buyer_id"
+  add_foreign_key "orders", "users", column: "seller_id"
 end
