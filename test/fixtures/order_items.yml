@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  item_id: 1
+  kilos: 1
+  price_per_kg: 1
+  price_total: 1
+  selected_size: MyString
+  selected_freeze: MyString
+  selected_glaze: MyString
+  catching_method: MyString
+
+two:
+  order_id: 1
+  item_id: 1
+  kilos: 1
+  price_per_kg: 1
+  price_total: 1
+  selected_size: MyString
+  selected_freeze: MyString
+  selected_glaze: MyString
+  catching_method: MyString
