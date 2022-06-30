@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_29_153534) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_140154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.string "specied_name"
+    t.string "species_name"
     t.string "scientific_name"
     t.string "color"
     t.string "physical_description"
@@ -43,9 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_153534) do
     t.integer "po_number"
     t.integer "internal_ref_number"
     t.integer "order_item_id"
-    t.string "sizd"
+    t.string "size"
     t.string "glaze"
-    t.integer "price_ks"
+    t.integer "price_kg"
     t.integer "cartons"
     t.string "packing"
     t.integer "kgs_carton"
