@@ -1,4 +1,4 @@
 class OrderItem < ApplicationRecord
     has_many :orders
-    has_one :item
+    belongs_to :item
 end
