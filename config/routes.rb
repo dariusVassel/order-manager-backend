@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :orders
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  
+  resources :order_items, only: [:index, :show] do
+    resources :orders, only: [:show, :index]
+  end
+
+  get "/get-current-user" => "sessions#get_current_user"
+  post "/login" => "sessions#login"
+
 end
