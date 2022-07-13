@@ -1,0 +1,2 @@
+class OrderInquiry < ApplicationRecord
+end

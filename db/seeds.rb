@@ -28,7 +28,6 @@ order_item1= OrderItem.create(item_id: item1.id)
 
 order1 = Order.create(order_status: "registered", po_number: 1000, order_item_id: order_item1.id, size: "20/40", glaze: "10", price_kg: 4.25, cartons: 835, packing: "6x1", kgs_carton: 6, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user3.id)
 
-#Still to make: items, order_items, orders) seed data
 #Add validations 
 #Add error handling
 #Add Mailers

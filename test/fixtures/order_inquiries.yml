@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_id: 1
+  product_name: MyString
+  quantity: 1
+  packing: MyString
+  glaze: MyString
+  shipment_date: 2022-07-13
+  contact_name: MyString
+
+two:
+  item_id: 1
+  product_name: MyString
+  quantity: 1
+  packing: MyString
+  glaze: MyString
+  shipment_date: 2022-07-13
+  contact_name: MyString
