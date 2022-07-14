@@ -1,7 +1,7 @@
 class OrderInquiriesController < ApplicationController
     before_action :set_user, only: %i[ show update destroy ]
 
-      # GET /orders
+      # GET /order_inquiries
   def index
     if params[:product_id]
       product= Product.find_by(id: params[:product_id])
@@ -17,7 +17,7 @@ class OrderInquiriesController < ApplicationController
       render json: @order_inquiries
   end
 
-  # POST /orders
+  # POST /order_inquiries
   def create
     @order_inquiry = OrderInquiry.new(order_inquiry_params)
     
@@ -29,6 +29,11 @@ class OrderInquiriesController < ApplicationController
     # rescue ActiveRecord::RecordInvalid => e
     #   render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end 
+  end
+
+  # DELETE /order_inquiries/1
+  def destroy
+    @order_inquiry.destroy
   end
 
   private
