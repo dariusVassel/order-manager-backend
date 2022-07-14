@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :order_inquiries
+  resources :items
 
   resources :order_items, only: [:index, :show] do
     resources :orders, only: [:show, :index]
