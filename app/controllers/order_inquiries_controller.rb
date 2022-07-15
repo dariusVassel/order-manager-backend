@@ -1,5 +1,5 @@
 class OrderInquiriesController < ApplicationController
-    before_action :set_user, only: %i[ show update destroy ]
+    before_action :set_order_inquiry, only: %i[ show update destroy ]
 
       # GET /order_inquiries
   def index
@@ -31,6 +31,12 @@ class OrderInquiriesController < ApplicationController
     end 
   end
 
+  # GET /orders/1
+  def show
+    order_inquiry = OrderInquiry.find_by(id: params[:id])
+    render json: @order_inquiry
+  end
+
   # DELETE /order_inquiries/1
   def destroy
     @order_inquiry.destroy
@@ -38,12 +44,12 @@ class OrderInquiriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
+    def set_order_inquiry
+      @order_inquiry = OrderInquiry.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def order_inquiry_params
-      params.require(:order_inquiry).permit(:item_id, :product_name, :quantity, :packing, :glaze, :shipment_date, :contact_name)
+      params.require(:order_inquiry).permit(:item_id, :product_name, :quantity, :packing, :glaze, :shipment_date, :contact_name, :user_id, :contact_id, :order_item_id)
     end
 end
