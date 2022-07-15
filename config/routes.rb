@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :items
 
   resources :order_items, only: [:index, :show] do
-    resources :orders, only: [:show, :index]
+    resources :orders, only: [:show, :index, :destroy]
   end
 
   get "/get-current-user" => "sessions#get_current_user"
