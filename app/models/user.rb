@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
     has_one :user_info, dependent: :destroy
 
+    has_many :order_inquiries
+    has_many :contacts, through: :order_inquiries
+
 
     has_many :buyer_orders, class_name: "Order", foreign_key: "buyer_id", dependent: :nullify
     has_many :seller_orders, class_name: "Order", foreign_key: "seller_id", dependent: :nullify
