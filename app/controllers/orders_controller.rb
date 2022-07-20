@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
       # @orders = Order.where(user: current_user).order(PO_date: :desc)
     end
-      render json: @orders
+      @orders.to_json
   end
 
   
@@ -61,6 +61,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:po_number, :po_date, :internal_ref_number, :size, :glaze, :price_kg, :cartons, :packing, :kgs_carton, :packing_specs, :shipment_date, :payment_terms, :port_to, :port_from, :order_total, :freeze, :total_kilos, :order_status, :PO_date, :buyer_id, :seller_id, :order_item_id)
+      params.require(:order).permit(:po_number, :po_date, :internal_ref_number, :size, :glaze, :price_kg, :cartons, :packing, :kgs_carton, :packing_specs, :shipment_date, :payment_terms, :port_to, :port_from, :order_total, :freeze, :total_kilos, :order_status, :buyer_id, :seller_id, :order_item_id)
     end
 end
