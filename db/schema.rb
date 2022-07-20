@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_183726) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_15_161211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,7 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_183726) do
     t.string "port_to"
     t.string "port_from"
     t.integer "order_total"
-    t.string "freeze"
+    t.string "selected_freeze"
     t.integer "total_kilos"
     t.bigint "buyer_id"
     t.bigint "seller_id"
