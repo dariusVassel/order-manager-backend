@@ -10,8 +10,7 @@ class OrderInquiriesController < ApplicationController
       contact = Contact.find_by(id: params[:contact_id])
       @order_inquiries= contact.orders.where(user: current_user)
     else
-      @order_inquiries = OrderInquiry.all
-
+      @order_inquiries = OrderInquiry.where(user: current_user)
       # @orders = Order.where(user: current_user).order(PO_date: :desc)
     end
       render json: @order_inquiries
