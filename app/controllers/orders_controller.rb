@@ -11,13 +11,12 @@ class OrdersController < ApplicationController
       @orders= contact.orders.where(user: current_user)
     else
       @orders = Order.all
-
-      # @orders = Order.where(user: current_user).order(PO_date: :desc)
+      #@orders = Order.where(user: current_user).order(PO_date: :desc)
     end
-      @orders.to_json
+    render json: @orders
   end
 
-  
+   
 
   # GET /orders/1
   def show
