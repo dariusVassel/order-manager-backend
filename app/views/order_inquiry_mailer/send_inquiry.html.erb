@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new inquiry! 
+    <p>
+    Order details<br>
+    --------------------------
+    </p>
+    <p>Product: <%= @order_inquiry[:product_name] %></p>
+    <p>Packing: <%= @order_inquiry[:packing] %></p>
+    <p>Glaze: <%= @order_inquiry[:glaze] %></p>
+    <p>Size: U/3 - 2900 kgs @ 7.90 usd/kg</p>
+
+    <p>Size: 3/6 - 2160 kgs @. 7.20 usd/kg</p>
+
+    <p>Size: 6/10 - 1280 kgs @. 6.25 usd/kg</p>
+
+    <p>Shipment by: <%= @order_inquiry[:shipment_date] %></p>
+    <p>
+    Message:<br>
+
+    ----------
+    </p>
+    <%= image_tag attachments['with-the-tide-logo.png'].url, alt: 'with-the-tide-logo', width: 100 %>
+
+    
+  </body>
+</html>
