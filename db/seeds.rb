@@ -26,9 +26,9 @@ item3 = Item.create(species_name: "Baby Squid", scientific_name: "Teuthida", col
 
 order_item1= OrderItem.create(item_id: item1.id)
 
-order1 = Order.create(order_status: "registered", po_number: 1000, order_item_id: order_item1.id, size: "20/40", glaze: "10", price_kg: 4.25, cartons: 835, packing: "6x1", kgs_carton: 6, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user3.id)
-order2 = Order.create(order_status: "registered", po_number: 1001, order_item_id: order_item1.id, size: "80/20", glaze: "20", price_kg: 6.25, cartons: 935, packing: "6x1", kgs_carton: 8, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user2.id)
-order3 = Order.create(order_status: "registered", po_number: 1002, order_item_id: order_item1.id, size: "80/20", glaze: "20", price_kg: 6.25, cartons: 935, packing: "6x1", kgs_carton: 8, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user2.id)
+order1 = Order.create(order_status: "registered", po_number: 1000, order_item_id: order_item1.id, size: "20/40", glaze: "10", price_kg: 4.25, cartons: 835, packing: "6x1", kgs_carton: 6, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user3.id, shipment_date: "2022-08-22")
+order2 = Order.create(order_status: "registered", po_number: 1001, order_item_id: order_item1.id, size: "80/20", glaze: "20", price_kg: 6.25, cartons: 935, packing: "6x1", kgs_carton: 8, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user2.id, shipment_date: "2022-07-17")
+order3 = Order.create(order_status: "registered", po_number: 1002, order_item_id: order_item1.id, size: "80/20", glaze: "20", price_kg: 6.25, cartons: 935, packing: "6x1", kgs_carton: 8, payment_terms: "sight dp or lc at 75 days", port_to: "Valencia, Spain", port_from: "Pipavav, India", order_total: 21292.5, total_kilos: 5010, packing_specs: "printed bags", buyer_id: user1.id, seller_id: user2.id, shipment_date: "2022-07-29")
 
 
 
@@ -37,7 +37,7 @@ contact2 = Contact.create(first_name: "Gonzalo", last_name: "Karbaggio", email: 
 contact3 = Contact.create(first_name: "Brent", last_name: "Poker", email: "samarth.gwalani94@gmail.com", company: "Raadegast", country: "United States")
 contact4 = Contact.create(first_name: "Laaz", last_name: "Phoenix", email: "samarth.gwalani94@gmail.com", company: "Foosa Republic", country: "Madagascar")
 
-order_inquiry1 = OrderInquiry.create(item_id: item1.id, product_name: "Whole Cleaned Cuttlefish", quantity: 1000, packing: "10x1 kg", glaze: "20%", shipment_date: "2022-03-07", contact_name: "Silver", contact_id: contact1.id, user_id: user3.id)
+order_inquiry1 = OrderInquiry.create(item_id: item1.id, product_name: "Whole Cleaned Cuttlefish", quantity: 1000, packing: "10x1 kg", glaze: "20%", shipment_date: "2022-03-07", contact_name: "Silver", contact_id: contact1.id, user_id: user3.id, status: "NOT SENT")
 
 
 

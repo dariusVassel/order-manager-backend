@@ -3,17 +3,14 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    if params[:product_id]
-      product= Product.find_by(id: params[:product_id])
-      @orders= product.orders.where(user: current_user)
-    elsif params[:contact_id]
-      contact = Contact.find_by(id: params[:contact_id])
-      @orders= contact.orders.where(user: current_user)
-    else
       @orders = Order.all
-      #@orders = Order.where(user: current_user).order(PO_date: :desc)
-    end
-    render json: @orders
+      #@orders = Order.where(user: current_user)
+    
+    render json: @orders, :include => [:order_item =>:item]
+    
+    #:include => [:order_item => [:include => [:item]]]
+
+    
   end
 
    

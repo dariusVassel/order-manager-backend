@@ -3,16 +3,9 @@ class OrderInquiriesController < ApplicationController
 
       # GET /order_inquiries
   def index
-    if params[:product_id]
-      product= Product.find_by(id: params[:product_id])
-      @order_inquiries= product.orders.where(user: current_user)
-    elsif params[:contact_id]
-      contact = Contact.find_by(id: params[:contact_id])
-      @order_inquiries= contact.orders.where(user: current_user)
-    else
       @order_inquiries = OrderInquiry.where(user: current_user)
       # @orders = Order.where(user: current_user).order(PO_date: :desc)
-    end
+
       render json: @order_inquiries
   end
 
@@ -27,6 +20,22 @@ class OrderInquiriesController < ApplicationController
 
     # rescue ActiveRecord::RecordInvalid => e
     #   render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+    end 
+  end
+
+  # PATCH/PUT /order_inquiries/1
+  def update
+    respond_to do |format|
+      if @order_inquiry.update(order_inquiry_params)&& @order_inquiry.status == "EDITED"
+          format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: @order_inquiry}
+      elsif @order_inquiry.update(order_inquiry_params)&& @order_inquiry.status == "SENT"
+        OrderInquiryMailer.with(order_inquiry: order_inquiry_params).send_inquiry.deliver_later
+        format.html { redirect_to(@order_inquiry, notice: 'Order was successfully sent.') }
+        format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: @order_inquiry}
+      else
+        format.html { render action: 'new' }
+        format.json {render json: {errors: ["Unable to send"]}, status: :unprocessable_entity}
+      end
     end 
   end
 
@@ -49,6 +58,6 @@ class OrderInquiriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_inquiry_params
-      params.require(:order_inquiry).permit(:item_id, :product_name, :quantity, :packing, :glaze, :shipment_date, :contact_name, :user_id, :contact_id, :order_item_id)
+      params.require(:order_inquiry).permit(:item_id, :product_name, :quantity, :packing, :glaze, :shipment_date, :contact_name, :user_id, :contact_id, :order_item_id, :status)
     end
 end
