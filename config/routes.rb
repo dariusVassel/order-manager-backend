@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     end
 
     #FIX THESE TWO LINES
-    get "/api/get-current-user" => "sessions#get_current_user"
-    post "/api/login" => "sessions#login"
+    get "/get-current-user" => "sessions#get_current_user"
+    post "/login" => "sessions#login"
 
   #end
 
