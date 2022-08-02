@@ -1,4 +1,4 @@
-class Api::OrderItemsController < ApplicationController
+class OrderItemsController < ApplicationController
     def index
         @order_items = OrderItem.all
 

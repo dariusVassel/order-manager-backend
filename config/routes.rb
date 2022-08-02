@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api do
+  #namespace :api do
     resources :users
     resources :orders
     resources :order_inquiries
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     get "/api/get-current-user" => "sessions#get_current_user"
     post "/api/login" => "sessions#login"
 
-  end
+  #end
 
-  get "*path", to: "api/fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  #get "*path", to: "api/fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
 end
