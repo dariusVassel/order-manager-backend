@@ -10,10 +10,15 @@ Rails.application.routes.draw do
     end
 
     #FIX THESE TWO LINES
-    get "/get-current-user" => "sessions#get_current_user"
-    post "/login" => "sessions#login"
+    
+    
   end
 
+  get "/get-current-user" => "sessions#get_current_user"
+  post "/login" => "sessions#login"
+
+
+  
   
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

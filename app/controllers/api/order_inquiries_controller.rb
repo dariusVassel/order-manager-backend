@@ -1,4 +1,4 @@
-class OrderInquiriesController < ApplicationController
+class Api::OrderInquiriesController < ApplicationController
     before_action :set_order_inquiry, only: %i[ show update destroy ]
 
       # GET /order_inquiries
@@ -11,10 +11,11 @@ class OrderInquiriesController < ApplicationController
 
   # POST /order_inquiries
   def create
+    #binding.pry
     @order_inquiry = OrderInquiry.new(order_inquiry_params)
     
     if @order_inquiry.save
-      render json: @order_inquiry, status: :created, location: @order_inquiry
+      render json: @order_inquiry, status: :created, location: api_order_inquiries_path(@order_inquiry)
     else
       render json: @order_inquiry.errors, status: :unprocessable_entity
 
@@ -27,11 +28,11 @@ class OrderInquiriesController < ApplicationController
   def update
     respond_to do |format|
       if @order_inquiry.update(order_inquiry_params)&& @order_inquiry.status == "EDITED"
-          format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: @order_inquiry}
+          format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: api_order_inquiries_path(@order_inquiry)}
       elsif @order_inquiry.update(order_inquiry_params)&& @order_inquiry.status == "SENT"
         OrderInquiryMailer.with(order_inquiry: order_inquiry_params).send_inquiry.deliver_later
         format.html { redirect_to(@order_inquiry, notice: 'Order was successfully sent.') }
-        format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: @order_inquiry}
+        format.json {render json: {order_inquiry: @order_inquiry, user: current_user}, status: :created, location: api_order_inquiries_path(@order_inquiry)}
       else
         format.html { render action: 'new' }
         format.json {render json: {errors: ["Unable to send"]}, status: :unprocessable_entity}

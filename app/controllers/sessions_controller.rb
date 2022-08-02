@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
     end
 
     def login
+        #binding.pry
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             @token = encode_token({user_id: @user.id})
-            render json: {user: @user, token: @token}, status: :ok, location: @user
+            render json: {user: @user, token: @token}, status: :ok, location: api_user_path(@user)
         else
             render json: {errors: ["Incorrect username or password"]}, status: :unprocessable_entity
         end

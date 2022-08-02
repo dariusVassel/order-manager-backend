@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Api::ItemsController < ApplicationController
     def index
         if params[:product_id]
           product= Product.find_by(id: params[:product_id])
