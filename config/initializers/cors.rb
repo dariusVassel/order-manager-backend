@@ -7,8 +7,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://order-manager-app-build.herokuapp.com/"
+    #origins "https://order-manager-app-build.herokuapp.com/"
     origins "*"
+    #origins "localhost:3000"
 
 
 
