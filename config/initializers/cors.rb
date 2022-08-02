@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "localhost:4000"
+    origins "https://frozen-badlands-72757.herokuapp.com/"
 
     resource "*",
       headers: :any,
