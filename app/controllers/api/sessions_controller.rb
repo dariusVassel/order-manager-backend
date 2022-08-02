@@ -1,8 +1,8 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
     skip_before_action :authorized
 
     def get_current_user
-        render json: {user: current_user}
+        render json: {user: current_user}, location: api_user_path(@user)
     end
 
     def login
